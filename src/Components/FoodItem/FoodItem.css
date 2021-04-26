@@ -1,0 +1,11 @@
+.food-item{
+    
+    transition: 30s;
+}
+.food-item:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px 1.5px grey;
+    
+    
+    
+}

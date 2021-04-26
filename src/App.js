@@ -1,23 +1,51 @@
-import logo from './logo.svg';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
+import AboutUs from './Components/AboutUS/AboutUs';
+import Cart from "./Components/Cart/Cart";
+
+import FoodMenu from './Components/FoodMenu/FoodMenu';
+
+import Jumbotron from './Components/Jumbotron/Jumbotron';
+import NavigationBar from './Components/NavigationBar/NavigationBar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavigationBar></NavigationBar>
+
+
+        <Switch>
+          <Route path="/cart">
+            <Cart></Cart>
+          </Route>
+          <Route path="/about">
+            <AboutUs></AboutUs>
+          </Route>
+
+
+          <Route exact path="/">
+            <Jumbotron></Jumbotron>
+            <FoodMenu></FoodMenu>
+            <AboutUs></AboutUs>
+          </Route>
+
+
+
+        </Switch>
+      </Router>
+
+
+
+
+
+
     </div>
   );
 }
