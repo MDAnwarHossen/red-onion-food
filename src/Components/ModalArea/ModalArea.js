@@ -49,7 +49,7 @@ const ModalArea = (props) => {
                                     <span className="text-body m-2 p-2"><FontAwesomeIcon icon={faMinus} /></span>1<span className="text-danger m-2 p-2"><FontAwesomeIcon icon={faPlus} /></span>
                                 </div>
                             </div>
-                            <p onClick={() => { props.addToCart(id); props.onHide() }} className="d-flex justify-content-around cart-in-modal bg-danger text-white"><span><FontAwesomeIcon icon={faShoppingCart} /></span>Add</p>
+                            <p onClick={() => { props.addToCart(id, img, title, shortDescription, price ); props.onHide() }} className="d-flex justify-content-around cart-in-modal bg-danger text-white"><span><FontAwesomeIcon icon={faShoppingCart} /></span>Add</p>
 
                         </div>
                         <div className="col-md-6">

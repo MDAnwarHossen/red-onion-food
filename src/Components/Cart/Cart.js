@@ -5,19 +5,23 @@ import CartItem from '../CartItem/CartItem';
 
 const Cart = (props) => {
     
+    
     const {cart, removeFromCart} = props;
     return (
         <table className="table table-hover">
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">ITEM</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">SUB-TOTAL</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                {cart.map(id => <CartItem id = {id} removeFromCart = {removeFromCart}></CartItem>)}
+                {cart.map(item => <CartItem cart = {item} removeFromCart = {removeFromCart}></CartItem>)}
                 
             </tbody>
         </table>
@@ -25,6 +29,7 @@ const Cart = (props) => {
 };
 
 const mapStateToProps = state => {
+    
     return {
         cart: state.cart,
     }
