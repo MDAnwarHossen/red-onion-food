@@ -2,12 +2,13 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/cartActions";
 
 
 const initialState = {
-    cart: []
+    
+        cart: []
+      
 };
 
 const cartReducers = (state = initialState, action) => {
-
-   
+    
 
     switch (action.type) {
         case ADD_TO_CART:
@@ -27,12 +28,14 @@ const cartReducers = (state = initialState, action) => {
                 };
             }
 
-
         case REMOVE_FROM_CART:
 
             const newCart = state.cart.filter(item => item !== action.id)
 
             return { ...state, cart: newCart };
+
+        
+             
 
         default:
             return state;

@@ -9,6 +9,7 @@ const CartItem = (props) => {
     const {cart, removeFromCart} = props;
     return (
         <tr>
+            
             <th scope="row"><FontAwesomeIcon onClick = {() => removeFromCart(cart)} icon={faTrashAlt} /></th>
             <td><img className="cart-img" src={cart.img} alt=""/> </td>
             <td>{cart.title}</td>

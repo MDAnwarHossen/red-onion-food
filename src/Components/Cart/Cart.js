@@ -6,7 +6,7 @@ import CartItem from '../CartItem/CartItem';
 const Cart = (props) => {
     
     
-    const {cart, removeFromCart} = props;
+    const {cart, removeFromCart } = props;
     return (
         <table className="table table-hover">
             <thead>
@@ -21,7 +21,8 @@ const Cart = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {cart.map(item => <CartItem cart = {item} removeFromCart = {removeFromCart}></CartItem>)}
+            
+                {cart.map(item => <CartItem cart = {item} removeFromCart = {removeFromCart} ></CartItem>)}
                 
             </tbody>
         </table>
@@ -31,7 +32,7 @@ const Cart = (props) => {
 const mapStateToProps = state => {
     
     return {
-        cart: state.cart,
+        cart: state.cartReducers.cart,
     }
 }
 

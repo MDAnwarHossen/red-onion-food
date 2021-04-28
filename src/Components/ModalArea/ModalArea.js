@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose, faPlus, faMinus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import './ModalArea.css';
-import { addToCart } from '../../redux/actions/cartActions';
+import { addToCart, numberDecrement, numberIncrement } from '../../redux/actions/cartActions';
 import { connect } from 'react-redux';
 
 const customStyles = {
@@ -20,16 +20,17 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 const ModalArea = (props) => {
-
-    const { id, img, title, shortDescription, longDescription, price, Category } = props.food;
+    
+    const {addToCart, cart, count, food, numberIncrement, numberDecrement, onHide, show} = props;
+    const { id, img, title, shortDescription, longDescription, price, Category } = food;
 
     return (
         <div>
 
             <Modal
-                isOpen={props.show}
+                isOpen={show}
 
-                onRequestClose={props.onHide}
+                onRequestClose={onHide}
                 // style={customStyles}
                 contentLabel="Example Modal"
 
@@ -37,7 +38,7 @@ const ModalArea = (props) => {
 
                 <div className="container">
 
-                    <p onClick={props.onHide} className="close-modal ml-auto"><FontAwesomeIcon icon={faWindowClose} /></p>
+                    <p onClick={onHide} className="close-modal ml-auto"><FontAwesomeIcon icon={faWindowClose} /></p>
                     <div className='row'>
 
                         <div className="col-md-6">
@@ -46,10 +47,10 @@ const ModalArea = (props) => {
                             <div className="d-flex mr-auto">
                                 <h2 className="m-0 pt-1"><span>$</span>{price}</h2>
                                 <div className="m-2 p-2 rounded-border">
-                                    <span className="text-body m-2 p-2"><FontAwesomeIcon icon={faMinus} /></span>1<span className="text-danger m-2 p-2"><FontAwesomeIcon icon={faPlus} /></span>
+                                    <span onClick = {() => numberDecrement(id)} className="text-body m-2 p-2"><FontAwesomeIcon icon={faMinus} /></span>{count}<span onClick = {() => numberIncrement(id)} className="text-danger m-2 p-2"><FontAwesomeIcon  icon={faPlus} /></span>
                                 </div>
                             </div>
-                            <p onClick={() => { props.addToCart(id, img, title, shortDescription, price ); props.onHide() }} className="d-flex justify-content-around cart-in-modal bg-danger text-white"><span><FontAwesomeIcon icon={faShoppingCart} /></span>Add</p>
+                            <p onClick={() => { addToCart(id, img, title, shortDescription, price ); onHide() }} className="d-flex justify-content-around cart-in-modal bg-danger text-white"><span><FontAwesomeIcon icon={faShoppingCart} /></span>Add</p>
 
                         </div>
                         <div className="col-md-6">
@@ -69,12 +70,16 @@ const ModalArea = (props) => {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart,
+        cart: state.cartReducers.cart,
+        count: state.countReducers
     }
 }
 
 const mapDispatchToProps = {
-    addToCart: addToCart
+    addToCart: addToCart,
+    numberIncrement: numberIncrement,
+    numberDecrement: numberDecrement
+    
 }
 
 

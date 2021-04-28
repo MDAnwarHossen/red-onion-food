@@ -32,6 +32,7 @@ const NavigationBar = (props) => {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link shopping-cart" href="/"><FontAwesomeIcon icon={faShoppingCart} /> <span id="lblCartCount" className="badge badge-warning">{props.cart.length}</span>
+                            
                             </a>
                         </li>
 
@@ -46,7 +47,7 @@ const NavigationBar = (props) => {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart,
+        cart: state.cartReducers.cart,
     }
 }
 
