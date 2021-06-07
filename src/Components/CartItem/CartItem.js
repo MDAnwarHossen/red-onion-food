@@ -5,9 +5,9 @@ import './CartItem.css';
 
 const CartItem = (props) => {
     const {cart, removeFromCart} = props;
+    console.log(cart);
     return (
         <tr>
-            
             <th scope="row"><FontAwesomeIcon onClick = {() => removeFromCart(cart.id)} icon={faTrashAlt} /></th>
             <td><img className="cart-img" src={cart.img} alt=""/> </td>
             <td>{cart.title}</td>

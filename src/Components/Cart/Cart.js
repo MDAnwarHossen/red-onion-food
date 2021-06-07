@@ -5,7 +5,6 @@ import CartItem from '../CartItem/CartItem';
 
 const Cart = (props) => {
     
-    
     const {cart, removeFromCart } = props;
     
     return (
@@ -18,7 +17,6 @@ const Cart = (props) => {
                     <th scope="col">PRICE</th>
                     <th scope="col">QUANTITY</th>
                     <th scope="col">SUB-TOTAL</th>
-                    
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +29,6 @@ const Cart = (props) => {
 };
 
 const mapStateToProps = state => {
-    
     return {
         cart: state.cart,
     }
@@ -40,5 +37,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     removeFromCart: removeFromCart
 }
-
  export default connect(mapStateToProps, mapDispatchToProps)(Cart);

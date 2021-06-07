@@ -20,20 +20,12 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 const ModalArea = (props) => {
-    
     const { addToCart, food, onHide, show } = props;
     const { id, img, title, shortDescription, longDescription, price, quantity } = food;
-    
-
-
     return (
-
         <div>
-
-
             <Modal
                 isOpen={show}
-
                 onRequestClose={onHide}
                 // style={customStyles}
                 contentLabel="Example Modal"
@@ -41,10 +33,8 @@ const ModalArea = (props) => {
             >
 
                 <div className="container">
-
                     <p onClick={onHide} className="close-modal ml-auto"><FontAwesomeIcon icon={faWindowClose} /></p>
                     <div className='row'>
-
                         <div className="col-md-6">
                             <h1>{title}</h1>
                             <p>{longDescription}</p>
@@ -61,12 +51,8 @@ const ModalArea = (props) => {
                         <div className="col-md-6">
                             <img src={img} className="img-fluid" alt="" />
                         </div>
-
                     </div>
-
                 </div>
-
-
             </Modal>
         </div>
     );
@@ -76,9 +62,6 @@ const ModalArea = (props) => {
 const mapStateToProps = state => {
     return {
         cart: state.cart,
-        
-
-
     }
 }
 
@@ -86,10 +69,6 @@ const mapDispatchToProps = {
     addToCart: addToCart,
     increment: increment,
     decrement: decrement,
-
-
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalArea);

@@ -4,8 +4,6 @@ import FoodItem from '../FoodItem/FoodItem';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
-
 const FoodMenu = (props) => {
     
     const {products} = props;
@@ -33,9 +31,8 @@ const FoodMenu = (props) => {
             </div>
             <div className="d-flex justify-content-center">
                 
-               
                <Link to="/cart"><button type="button" className="btn btn-secondary m-3">Checkout Your Food</button></Link>
-                
+
             </div>
 
         </div>
@@ -45,19 +42,12 @@ const FoodMenu = (props) => {
 const mapStateToProps = state => {
     return {
         products: state.products,
-        
-
-
     }
 }
 
 const mapDispatchToProps = {
-    
-
 
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(FoodMenu);
 
