@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 
 
 const FoodItem = (props) => {
+    
     const {id, img, title, shortDescription, longDescription, price, Category, dataAos} = props.food;
     
     const [modalShow, setModalShow] = useState(false);

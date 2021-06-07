@@ -9,6 +9,7 @@ const fakeData = [
       "price": "9.99",
       "Category": "Breakfast",
       "dataAos": "fade-right",
+      "quantity": 1
     },
     {
         "id": "2",
@@ -20,6 +21,7 @@ const fakeData = [
         "price": "19.99",
         "Category": "Breakfast",
         "dataAos": "fade-down",
+        "quantity": 1
       },
       {
         "id": "3",
@@ -31,6 +33,7 @@ const fakeData = [
         "price": "7.99",
         "Category": "Breakfast",
         "dataAos": "fade-left",
+        "quantity": 1
       },
       {
         "id": "4",
@@ -42,6 +45,7 @@ const fakeData = [
         "price": "11.99",
         "Category": "Breakfast",
         "dataAos": "fade-right",
+        "quantity": 1
       },
       {
         "id": "5",
@@ -53,6 +57,7 @@ const fakeData = [
         "price": "14.99",
         "Category": "Breakfast",
         "dataAos": "fade-down",
+        "quantity": 1
       },
       {
         "id": "6",
@@ -64,6 +69,7 @@ const fakeData = [
         "price": "5.99",
         "Category": "Breakfast",
         "dataAos": "fade-left",
+        "quantity": 1
       },
       {
         "id": "7",
@@ -75,6 +81,7 @@ const fakeData = [
         "price": "9.99",
         "Category": "Lunch",
         "dataAos": "fade-right",
+        "quantity": 1
       },
       {
         "id": "8",
@@ -86,6 +93,7 @@ const fakeData = [
         "price": "11.99",
         "Category": "Lunch",
         "dataAos": "fade-down",
+        "quantity": 1
       },
       {
         "id": "9",
@@ -97,6 +105,7 @@ const fakeData = [
         "price": "15.99",
         "Category": "Lunch",
         "dataAos": "fade-left",
+        "quantity": 1
       },
       {
         "id": "10",
@@ -108,6 +117,7 @@ const fakeData = [
         "price": "5.99",
         "Category": "Lunch",
         "dataAos": "fade-right",
+        "quantity": 1
       },
       {
         "id": "11",
@@ -119,6 +129,7 @@ const fakeData = [
         "price": "7.99",
         "Category": "Lunch",
         "dataAos": "fade-down",
+        "quantity": 1
       },
       {
         "id": "12",
@@ -130,6 +141,7 @@ const fakeData = [
         "price": "7.99",
         "Category": "Lunch",
         "dataAos": "fade-left",
+        "quantity": 1
       },
       {
         "id": "13",
@@ -141,6 +153,7 @@ const fakeData = [
         "price": "15.99",
         "Category": "Dinner",
         "dataAos": "fade-right",
+        "quantity": 1
       },
       {
         "id": "14",
@@ -152,6 +165,7 @@ const fakeData = [
         "price": "15.99",
         "Category": "Dinner",
         "dataAos": "fade-down",
+        "quantity": 1
       },
       {
         "id": "15",
@@ -163,6 +177,7 @@ const fakeData = [
         "price": "8.99",
         "Category": "Dinner",
         "dataAos": "fade-left",
+        "quantity": 1
       },
       {
         "id": "16",
@@ -174,6 +189,7 @@ const fakeData = [
         "price": "7.99",
         "Category": "Dinner",
         "dataAos": "fade-right",
+        "quantity": 1
       },
       {
         "id": "17",
@@ -185,6 +201,7 @@ const fakeData = [
         "price": "6.99",
         "Category": "Dinner",
         "dataAos": "fade-down",
+        "quantity": 1
       },
       {
         "id": "18",
@@ -196,6 +213,7 @@ const fakeData = [
         "price": "8.99",
         "Category": "Dinner",
         "dataAos": "fade-left",
+        "quantity": 1
       },
     
     

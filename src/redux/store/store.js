@@ -1,9 +1,12 @@
 import { createStore } from "redux";
-import allReducers from "../reducers";
 import cartReducers from "../reducers/cartReducers";
 
 
 
 
 
-export const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+
+
+
+export const store = createStore(cartReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

@@ -7,6 +7,7 @@ const Cart = (props) => {
     
     
     const {cart, removeFromCart } = props;
+    
     return (
         <table className="table table-hover">
             <thead>
@@ -32,7 +33,7 @@ const Cart = (props) => {
 const mapStateToProps = state => {
     
     return {
-        cart: state.cartReducers.cart,
+        cart: state.cart,
     }
 }
 

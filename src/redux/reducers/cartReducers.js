@@ -1,44 +1,88 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/cartActions";
+import fakeData from "../../fakeData/fakeData";
+import { ADD_TO_CART, DECREMENT, INCREMENT, REMOVE_FROM_CART } from "../actions/cartActions";
+
 
 
 const initialState = {
-    
-        cart: []
-      
+  products: fakeData,
+  cart: []
 };
 
+
 const cartReducers = (state = initialState, action) => {
-    
+  switch (action.type) {
+    case INCREMENT:
+      // let addedItem = state.products.find(item => item.id === action.payload.id)
+      // return {
+      //   ...state,
+      //   products: [
+      //     ...state.products,
+      //     { quantity: addedItem.quantity += 1 }
+      //   ]
+      // }
 
-    switch (action.type) {
-        case ADD_TO_CART:
-            const oldCart = state.cart;
-            const actionId = action.payload && action.payload.id;
-            const index = oldCart.findIndex((obj => parseInt(obj.id) === parseInt(actionId)));
 
-            if (index !== -1) {
-                const item1 = [...state.cart]
-                item1[index].price = "99.99"
-                return {
-                    cart: [...state.cart]
-                }
-            } else {
-                return {
-                    cart: [...state.cart, action.payload]
-                };
-            }
+      let addedItem = state.products.find(item => item.id === action.payload.id)
+      addedItem.quantity += 1
+      return {
+        ...state,
+        products: [
+          ...state.products,
+          
+        ]
+      }
+     
 
-        case REMOVE_FROM_CART:
+    /* falls through */
+    case DECREMENT:
+      let substructedItem = state.products.find(item => item.id === action.payload.id)
+      let currentQuantity = substructedItem.quantity
+      if (currentQuantity > 1) {
+        substructedItem.quantity -= 1
+      }
 
-            const newCart = state.cart.filter(item => item !== action.id)
+        return {
+          ...state,
+          products: [
+            ...state.products,
 
-            return { ...state, cart: newCart };
+          ]
+        }
 
-        
-             
+      
+    /* falls through */
 
-        default:
-            return state;
-    }
-}
+    case ADD_TO_CART:
+      let tergetItem = state.products.find(item => item.id === action.payload.id);
+
+      let existed_item = state.cart.find(item => action.payload.id === item.id);
+
+      if (existed_item) {
+        return {
+          ...state,
+          cart: [...state.cart]
+        }
+      }
+      else {
+        return {
+          ...state,
+          cart: [...state.cart, tergetItem],
+        }
+      }
+
+    case REMOVE_FROM_CART:
+
+      const remainingCart = state.cart.filter(item => item.id !== action.payload.id);
+      return {
+        cart: remainingCart
+      };
+
+    /* falls through */
+
+    default:
+      return state
+  }
+
+};
+
 export default cartReducers;

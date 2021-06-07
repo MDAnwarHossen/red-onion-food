@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 
 const NavigationBar = (props) => {
-    
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -47,7 +46,8 @@ const NavigationBar = (props) => {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cartReducers.cart,
+        cart: state.cart,
+        
     }
 }
 
