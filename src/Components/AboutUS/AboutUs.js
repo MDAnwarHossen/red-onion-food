@@ -1,55 +1,58 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectCoverflow, Navigation, Pagination, Autoplay } from 'swiper';
-import 'swiper/swiper-bundle.css';
 import './AboutUs.css';
+import image1 from "../../hot-onion-restaurent-resources-master/Image/thumb1.png";
+import image2 from "../../hot-onion-restaurent-resources-master/Image/thumb2.png";
+import image3 from "../../hot-onion-restaurent-resources-master/Image/thumb3.png";
+import signature from "../../hot-onion-restaurent-resources-master/Image/signature.png";
 
-SwiperCore.use([EffectCoverflow, Navigation, Pagination, Autoplay]);
 
 const AboutUs = () => {
-    const slides = ['https://i.ibb.co/kSfhM0h/1607430639533.png', 'https://i.ibb.co/kSfhM0h/1607430639533.png', 'https://i.ibb.co/kSfhM0h/1607430639533.png', 'https://i.ibb.co/kSfhM0h/1607430639533.png', 'https://i.ibb.co/kSfhM0h/1607430639533.png', 'https://i.ibb.co/kSfhM0h/1607430639533.png'];
+
     return (
-        <>
-            <div  className="container-fluid">
-                <Swiper
-                    id="main"
-                    
-                    centeredSlides = {true}
+        <section className="about" id="about">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="page-header wow fadeInDown">
+                            <h1>the restaurant</h1>
+                            <h5>A little about us and a breif history of how we started.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div className="row wow fadeInUp">
+                    <div className="col-lg-4">
+                        <div className="container-fluid">
+                            <div className="row">
+                                <div className="col-lg-12 py-1 px-0 hidden-sm about-photo">
+                                    <div className="image-thumb">
 
-                    breakpoints={{
-                        576: {
-                            slidesPerView: 1,
-                            
+                                        <img src={image1} className="img-responsive img-fluid w-100 h-100" alt="logo" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-6 p-0 about-photo hidden-xs">
+                                    <img src={image2} className="img-responsive img-fluid w-100 h-100" alt="logo" />
+                                </div>
+                                <div className="col-6 p-0 about-photo hidden-xs">
+                                    <img src={image3} className="img-responsive img-fluid w-100 h-100" alt="logo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-8 about-us">
+                        <p>
+                            Cras ut viverra eros. Phasellus sollicitudin sapien id luctus tempor. Sed hend rerit inter dum sagittis. Donec nunc lacus, dapibus nec interdum eget, ultrices eget justo. Nam purus lacus, efficitur eget laoreet sed, finibus nec neque. Cras eget enim in diam dapibus sagittis. In massa est, dignissim in libero ac, fringilla ornare mi. Etiam interdum ligula purus.
+                        </p>
 
-                        },
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 70
-
-                        },
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-
-                        },
-                    }}
-
-                    navigation
-                    pagination={{ clickable: true }}
-
-                    autoplay={{ delay: 3000 }}
-                    tag="section"
-                    wrapperTag="ul"
-                     >
-
-                    {slides.map((i, el) => {
-                        
-                        return <SwiperSlide key={el}> <img src={i} className="image-fluid" alt="" />  </SwiperSlide>;
-                    })}
-                </Swiper>
-
+                        <p>
+                            Ultrices eget justo. Nam purus lacus, efficitur eget laoreet sed, finibus nec neque. Cras eget enim in diam dapibus sagittis. In massa est, dignissim in libero ac, fringilla ornare.
+                        </p>
+                        <img src={signature} alt="signature" />
+                    </div>
+                </div>
             </div>
-        </>
+        </section>
     );
 };
 

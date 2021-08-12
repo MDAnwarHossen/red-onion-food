@@ -16,3 +16,42 @@
     vertical-align: top;
     margin-left: -8px;
 }
+
+.navbar{
+    width: 100%;
+    background-color: #000000;
+    position: absolute !important;
+    transition: all .5s;
+    z-index: 999;
+}
+
+.fixed-navbar {
+    width: 100%;
+    background-color: #000000;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+    animation-name: fixedAnim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    -webkit-box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+    -moz-box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+    box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
+  }
+  
+  .fixed-navbar a {
+    color: #000;
+  }
+  
+  @keyframes fixedAnim {
+    from {
+      top: -50px;
+    }
+    to {
+      top: 0;
+    }
+  }
+
+.navbar-nav li a{
+    color: #FFFFFF;
+}

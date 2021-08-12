@@ -1,0 +1,12 @@
+.container{
+    overflow:hidden;
+}
+button .btn{
+    border : none !important;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    color: white;
+    box-shadow: 0 0 0 .1rem rgba(249, 39, 79) !important;
+}

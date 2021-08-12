@@ -1,0 +1,49 @@
+.subscribe input[type=email] {
+	width: 100%;
+	border: 1px solid #F91944;
+	border-radius: 4px;
+	resize: vertical;
+	height: 50px;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .subscribe{
+      background:#BDBDBD;
+  }
+
+  .subscribe h1 {
+    font-weight: 300;
+    margin: 0;
+    line-height: 45px;
+    font-size: 3vw;
+    font-family: raleway,sans-serif;
+    text-transform: uppercase;
+    color: #757575;
+  }
+  .subscribe p {
+    font-family: josefin sans,sans-serif;
+    color: #757575;
+    font-size: 1.8vw;
+}
+
+.btn-default{
+    background: #F91944 !important;
+    border: 1px solid #F91944 !important;
+    font-size: 34px !important;
+    height: 50px !important;
+}
+.error{
+	color: red !important;
+}
+
+
+@media (max-width: 767.98px) {
+    .subscribe h1{
+        font-size: 45px;
+    }
+    .subscribe p{
+        font-size: 22px;
+    }
+}
+
+ 
