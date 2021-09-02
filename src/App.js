@@ -7,11 +7,13 @@ import {
 import './App.css';
 import AboutUs from './Components/AboutUS/AboutUs';
 import Cart from "./Components/Cart/Cart";
+import ContactUs from "./Components/ContactUs/ContactUs";
 import FoodMenu from './Components/FoodMenu/FoodMenu';
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Jumbotron from './Components/Jumbotron/Jumbotron';
 import Login from "./Components/Login/Login";
+import Map from "./Components/Map/Map";
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import Reservation from './Components/Reservation/Reservation';
 import Subscribe from "./Components/Subscribe/Subscribe";
@@ -46,6 +48,8 @@ function App() {
 
           <Route path="/contact">
             <Header></Header>
+            <ContactUs></ContactUs>
+            <Map></Map>
             <Subscribe></Subscribe>
             <Footer></Footer>
           </Route>
