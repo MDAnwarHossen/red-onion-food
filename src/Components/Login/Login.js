@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faFacebookSquare, faYoutube, faVimeo, faPinterestSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faFacebookSquare,  faGoogle, faGithubSquare, faMicrosoft, faYahoo } from '@fortawesome/free-brands-svg-icons';
 import { faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import socialNetworks, { fbProvider, gitHubProvider, googleProvider, initialzeLoginFarmworks, microsoftProvider, twitterProvider, yahooProvider } from './loginManager';
+
 
 
 const Login = () => {
     const [show, setShow] = useState(false);
-
-    
     // className = { isActive? 'container right-panel-active': 'container' }
+    initialzeLoginFarmworks();
+    // const googleSignIn = () => {
+    //     handleGoogleSignIn()
+    // }
+
+    const handleClick = async (provider) => {
+        const res = socialNetworks(provider);
+
+    }
+
 
     return (
         <section className="user">
@@ -28,29 +38,18 @@ const Login = () => {
                     </div>
                 </div>
 
-                <div className = { show? 'user_options-forms bounceLeft': 'user_options-forms bounceRight' }  id="user_options-forms">
+                <div className={show ? 'user_options-forms bounceLeft' : 'user_options-forms bounceRight'} id="user_options-forms">
                     <div className="user_forms-login">
                         <h2 className="forms_title">Login</h2>
                         <div className="contact-social text-nowrap d-flex justify-content-center">
-                                <a href="https://www.facebook.com">
-                                    <FontAwesomeIcon icon={faFacebookSquare} />
-                                </a>
-                                <a href="https://www.twitter.com">
-                                    <FontAwesomeIcon icon={faTwitter} />
-                                </a>
-                                <a href="https://www.youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} />
-                                </a>
-                                <a href="https://www.vimeo.com">
-                                    <FontAwesomeIcon icon={faVimeo} />
-                                </a>
-                                <a href="https://www.pinterest.com">
-                                    <FontAwesomeIcon icon={faPinterestSquare} />
-                                </a>
-                                <a href="http://www.linkedin.com">
-                                    <FontAwesomeIcon icon={faLinkedin} />
-                                </a>
-                            </div>
+                            <button onClick={() => handleClick(googleProvider)}><FontAwesomeIcon icon={faGoogle} /></button>
+                            <button onClick={() => handleClick(fbProvider)}><FontAwesomeIcon icon={faFacebookSquare} /></button>
+                            <button onClick={() => handleClick(twitterProvider)}><FontAwesomeIcon icon={faTwitter} /></button>
+                            <button onClick={() => handleClick(microsoftProvider)}><FontAwesomeIcon icon={faMicrosoft} /></button>
+                            <button onClick={() => handleClick(yahooProvider)}><FontAwesomeIcon icon={faYahoo} /></button>
+                            <button onClick={() => handleClick(gitHubProvider)}><FontAwesomeIcon icon={faGithubSquare} /></button>
+
+                        </div>
                         <p className="text-center">or use your account</p>
                         <form className="forms_form">
                             <fieldset className="forms_fieldset">
@@ -70,25 +69,13 @@ const Login = () => {
                     <div className="user_forms-signup">
                         <h2 className="forms_title">Sign Up</h2>
                         <div className="contact-social text-nowrap d-flex justify-content-center">
-                                <a href="https://www.facebook.com">
-                                    <FontAwesomeIcon icon={faFacebookSquare} />
-                                </a>
-                                <a href="https://www.twitter.com">
-                                    <FontAwesomeIcon icon={faTwitter} />
-                                </a>
-                                <a href="https://www.youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} />
-                                </a>
-                                <a href="https://www.vimeo.com">
-                                    <FontAwesomeIcon icon={faVimeo} />
-                                </a>
-                                <a href="https://www.pinterest.com">
-                                    <FontAwesomeIcon icon={faPinterestSquare} />
-                                </a>
-                                <a href="http://www.linkedin.com">
-                                    <FontAwesomeIcon icon={faLinkedin} />
-                                </a>
-                            </div>
+                            <button onClick={() => handleClick(googleProvider)}><FontAwesomeIcon icon={faGoogle} /></button>
+                            <button onClick={() => handleClick(fbProvider)}><FontAwesomeIcon icon={faFacebookSquare} /></button>
+                            <button onClick={() => handleClick(twitterProvider)}><FontAwesomeIcon icon={faTwitter} /></button>
+                            <button onClick={() => handleClick(microsoftProvider)}><FontAwesomeIcon icon={faMicrosoft} /></button>
+                            <button onClick={() => handleClick(yahooProvider)}><FontAwesomeIcon icon={faYahoo} /></button>
+                            <button onClick={() => handleClick(gitHubProvider)}><FontAwesomeIcon icon={faGithubSquare} /></button>
+                        </div>
                         <p className="text-center">or use your email for registration</p>
                         <form className="forms_form">
                             <fieldset className="forms_fieldset">

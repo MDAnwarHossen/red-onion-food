@@ -290,7 +290,7 @@ transition: color .2s ease-in-out;
   margin-bottom: 25px;
   display: table;
 }
-.user .contact-social a {
+.user .contact-social button {
   padding: 9px 0 6px;
   margin: 1px;
   color: #fff;
@@ -303,7 +303,7 @@ transition: color .2s ease-in-out;
   font-size: 17px;
   text-decoration: none;
 }
-.user .contact-social a:hover{
+.user .contact-social button:hover{
   color: #fff;
   background-color:#F91944;
 }
