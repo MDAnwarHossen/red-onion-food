@@ -26,18 +26,18 @@ const defaultValues = {
 
 const Reservation = () => {
 	const [age, setAge] = React.useState('');
-
+console.log(age);
 	const handleChange = (event) => {
 		setAge(event.target.value);
 	};
 
 	const [selectedDate, handleDateChange] = useState(new Date());
-	const [selectedTime, handleTimeChange] = useState(selectedDate.getTime());
-	
+	const [selectedTime, handleTimeChange] = useState(new Date());
+	console.log(selectedDate);
 
 	const { register, control, handleSubmit, reset, formState: { errors } } = useForm();
 	const onSubmit = (data) => {
-		
+		console.log(data);
 		var dateObjTime = selectedDate.toLocaleTimeString('en-US');
 
 		var month = selectedDate.getMonth() + 1;
@@ -45,7 +45,7 @@ const Reservation = () => {
 		var year = selectedDate.getFullYear();
 		var newdate = month + "/" + day + "/" + year;
 		let booking = { Date: newdate, Time: dateObjTime, Guest: age, Phone: data.MobileNumber }
-		
+		console.log(booking);
 		reset(defaultValues)
 
 	};
@@ -69,8 +69,18 @@ const Reservation = () => {
 									<div className="col-md-6">  
 										<section>
 											<label>Table for :</label>
-											
-											<Controller
+											<Select
+												labelId="demo-simple-select-label"
+												id="demo-simple-select"
+												value={age}
+												label="Age"
+												onChange={handleChange}
+											>
+												<MenuItem value={10}>Ten</MenuItem>
+												<MenuItem value={20}>Twenty</MenuItem>
+												<MenuItem value={30}>Thirty</MenuItem>
+											</Select>
+											{/* <Controller
 
 												isClearable
 												control={control}
@@ -93,7 +103,7 @@ const Reservation = () => {
 														]}
 													/>
 												)}
-											/>
+											/> */}
 											{errors.Person?.type === 'required' && <p className="error">Guest Number is required</p>}
 										</section>
 										<section>
@@ -106,12 +116,17 @@ const Reservation = () => {
 									<div className="col-md-6">
 										<MuiPickersUtilsProvider utils={DateFnsUtils}>
 											<Grid container justify="space-around">
-												<Controller
-												 name="MUIPicker"
+												<DatePicker
+													label="Basic example"
+													value={selectedDate}
+													onChange={handleDateChange}
+													
+												/>
+												{/* <Controller
 													control={control}
 
 													{...register("Date", { required: true })}
-													render={({ field: { ref, ...rest } }) => (
+													render={({ field }) => (
 														<KeyboardDatePicker
 															margin="normal"
 															disablePast
@@ -121,14 +136,23 @@ const Reservation = () => {
 															KeyboardButtonProps={{
 																'aria-label': 'change date',
 															}}
-															{...rest}
+															{...field}
 														/>
 													)}
-												/>
+												/> */}
 												{errors.Date?.type === 'required' && <p className="error">Date is required</p>}
 
+												<TimePicker
+													showTodayButton
+													todayLabel="now"
+													label="Step = 5"
+													value={selectedTime}
+													minutesStep={5}
+													onChange={handleTimeChange}
+												/>
 
-												<Controller
+
+												{/* <Controller
 													control={control}
 													{...register("Time", { required: true })}
 													render={({ field }) => (
@@ -144,7 +168,7 @@ const Reservation = () => {
 															keyboardIcon={<FontAwesomeIcon icon={faClock} />}
 														/>
 													)}
-												/>
+												/> */}
 												{errors.Time?.type === 'required' && <p className="error">Time is required</p>}
 											</Grid>
 										</MuiPickersUtilsProvider>

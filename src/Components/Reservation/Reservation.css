@@ -88,7 +88,6 @@
 .MuiInput-underline::after{
 	border-bottom: 2px solid #F9274F !important;
 }
-
 .error{
 	color: red;
 }
@@ -98,13 +97,10 @@ input::after{
 input::before{
 	border: 1px solid #F9274F !important;
 }
-
 input[type=number]:focus-visible {
 	outline: 3px solid #F9274F !important;
 	box-shadow: 0px 0px 0px 1px red;
-	
 }
-
 input[type=number] {
 	width: 100%;
 	border: 1px solid #ccc;

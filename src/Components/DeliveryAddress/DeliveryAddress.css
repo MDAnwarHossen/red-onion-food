@@ -1,0 +1,18 @@
+.delivery-address{
+    padding: 80px 20px !important;
+    background-color: #fff;
+}
+.address-form-group input{
+background-color: #fff;
+border-bottom: 1px solid rgba(128, 128, 128, 0.308) !important;
+}
+.address-form-group input[type=number]:focus-visible{
+    outline: none !important;
+}
+.move-right{
+    text-align:right;
+}
+.special{
+    border-top: 3px solid red !important;
+}
+

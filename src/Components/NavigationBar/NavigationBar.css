@@ -51,7 +51,8 @@
       top: 0;
     }
   }
+  .custom-dropdown-menu{
+    background-color: #9E9E9E !important;
+  }
 
-.navbar-nav li a{
-    color: #FFFFFF;
-}
+

@@ -1,0 +1,18 @@
+.cart-table{
+    padding-top:70px;
+}
+.cart-table input[type=text] {
+	
+	border: 1px solid #F91944;
+	border-radius: 4px;
+	resize: vertical;
+	height: 40px;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .btn-discount{
+    background: #F91944 !important;
+    border: 1px solid #F91944 !important;
+    font-size: 20px !important;
+    height: 40px !important;
+}

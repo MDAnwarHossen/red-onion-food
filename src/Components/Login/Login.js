@@ -1,25 +1,69 @@
 import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faFacebookSquare,  faGoogle, faGithubSquare, faMicrosoft, faYahoo } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faFacebookSquare, faGoogle, faGithubSquare, faMicrosoft, faYahoo } from '@fortawesome/free-brands-svg-icons';
 import { faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import socialNetworks, { fbProvider, gitHubProvider, googleProvider, initialzeLoginFarmworks, microsoftProvider, twitterProvider, yahooProvider } from './loginManager';
+import socialNetworks, { createAccountWithEmailAndPassword, fbProvider, gitHubProvider, googleProvider, initialzeLoginFarmworks, microsoftProvider, signInAccount, twitterProvider, updateUserProfile, yahooProvider } from './loginManager';
+import { addUser } from '../../redux/actions/loginActions';
+import { connect } from 'react-redux';
 
 
 
-const Login = () => {
-    const [show, setShow] = useState(false);
-    // className = { isActive? 'container right-panel-active': 'container' }
-    initialzeLoginFarmworks();
-    // const googleSignIn = () => {
-    //     handleGoogleSignIn()
-    // }
 
-    const handleClick = async (provider) => {
-        const res = socialNetworks(provider);
-
+const Login = (props) => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register: register2, handleSubmit: handleSubmit2, reset: reset2, formState: { errors: errors2 } } = useForm();
+    const defaultValues = {
+        Full_Name: "Full Name",
+        Email: "Email",
+        Password: "Password",
     }
 
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+    const [show, setShow] = useState(false);
+    const [result, setResult] = useState({});
+    // className = { isActive? 'container right-panel-active': 'container' }
+    initialzeLoginFarmworks();
+
+    //...............Authenticate Using Social Networks ..............................
+    const handleClick = (provider) => {
+        socialNetworks(provider)
+            .then((res) => {
+                props.addUser(res);
+                console.log(res);
+            })
+    }
+
+    //...............Sign in a user with an email address and password ..............................
+    const loginOldAccount = (data) => {
+        signInAccount(data.email, data.password)
+            .then((res) => {
+                console.log(res.displayName);
+                setResult(res);
+                props.addUser(res);
+                history.replace(from);
+                if (res.uid) {
+                    reset(defaultValues);
+                }
+            });
+    };
+
+    //...............Create a password-based account ..............................
+    const createAccount = (data) => {
+        createAccountWithEmailAndPassword(data.email, data.password)
+            .then((res) => {
+                updateUserProfile(data.fullName);
+                setResult(res);
+                props.addUser(res);
+                if (res.uid) {
+                    reset2(defaultValues);
+                }
+            });
+    };
 
     return (
         <section className="user">
@@ -51,13 +95,25 @@ const Login = () => {
 
                         </div>
                         <p className="text-center">or use your account</p>
-                        <form className="forms_form">
+                        <form className="forms_form" onSubmit={handleSubmit(loginOldAccount)}>
+
                             <fieldset className="forms_fieldset">
                                 <div className="forms_field">
-                                    <input type="email" placeholder="Email" className="forms_field-input" required autofocus />
+                                    <input type="email" placeholder={defaultValues.Email} autoFocus className="forms_field-input" {...register("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} />
+                                    {errors?.email?.type === "required" && <p className="error">This field is required</p>}
+                                    {errors?.email?.type === "pattern" && (
+                                        <p className="error">Please provide a valid email address</p>
+                                    )}
                                 </div>
                                 <div className="forms_field">
-                                    <input type="password" placeholder="Password" className="forms_field-input" required />
+                                    <input type="password" placeholder={defaultValues.Password} className="forms_field-input" {...register("password", { required: true, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/ })} />
+                                    {errors?.password?.type === "required" && <p className="error">This field is required</p>}
+                                    {errors?.password?.type === "pattern" && (
+                                        <p className="error">Should be 8 to 20 characters, at least one uppercase character, one lowercase character and one digit </p>
+                                    )}
+                                    {result.errorCode ? <p className="error">Invalid username or password</p> : ""}
+
+
                                 </div>
                             </fieldset>
                             <div className="forms_buttons">
@@ -77,18 +133,37 @@ const Login = () => {
                             <button onClick={() => handleClick(gitHubProvider)}><FontAwesomeIcon icon={faGithubSquare} /></button>
                         </div>
                         <p className="text-center">or use your email for registration</p>
-                        <form className="forms_form">
+                        <form className="forms_form" onSubmit={handleSubmit2(createAccount)}>
                             <fieldset className="forms_fieldset">
+
                                 <div className="forms_field">
-                                    <input type="text" placeholder="Full Name" className="forms_field-input" required />
+                                    <input type="text" placeholder={defaultValues.Full_Name} autoFocus className="forms_field-input" {...register2("fullName", { required: true, minLength: 6, maxLength: 80 })} />
+                                    {errors2?.fullName?.type === "required" && <p className="error">This field is required</p>}
+                                    {errors2?.fullName?.type === "minLength" && (
+                                        <p className="error">Minimum length must be at least six characters</p>
+                                    )}
                                 </div>
                                 <div className="forms_field">
-                                    <input type="email" placeholder="Email" className="forms_field-input" required />
+                                    <input type="email" placeholder={defaultValues.Email} className="forms_field-input"  {...register2("email", { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} />
+                                    {errors2?.email?.type === "required" && <p className="error">This field is required</p>}
+                                    {errors2?.email?.type === "pattern" && (
+                                        <p className="error">Please provide a valid email address</p>
+                                    )}
                                 </div>
                                 <div className="forms_field">
-                                    <input type="password" placeholder="Password" className="forms_field-input" required />
+                                    <input type="password" placeholder={defaultValues.Password} className="forms_field-input"  {...register2("password", { required: true, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/ })} />
+                                    {errors2?.password?.type === "required" && <p className="error">This field is required</p>}
+                                    {errors2?.password?.type === "pattern" && (
+                                        <p className="error">Should be 8 to 20 characters, at least one uppercase character, one lowercase character and one digit </p>
+                                    )}
+                                    {result.errorCode ? <p className="error">{result.errorMessage}</p> : ""}
                                 </div>
                             </fieldset>
+                            {/* <div className="forms_buttons">
+                                <Link to="/emailverification">
+                                    <input type="submit" value="Sign up" className="forms_buttons-action" />
+                                </Link>
+                            </div> */}
                             <div className="forms_buttons">
                                 <input type="submit" value="Sign up" className="forms_buttons-action" />
                             </div>
@@ -99,5 +174,14 @@ const Login = () => {
         </section>
     );
 };
+const mapStateToProps = state => {
+    return {
+        loginReducers: state.loginReducers,
+    }
+}
+const mapDispatchToProps = {
+    addUser: addUser,
+}
 
-export default Login;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

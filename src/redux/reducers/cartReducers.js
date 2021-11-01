@@ -5,8 +5,9 @@ import { ADD_TO_CART, DECREMENT, INCREMENT, REMOVE_FROM_CART } from "../actions/
 
 const initialState = {
   products: fakeData,
-  cart: []
+  cart: [],
 };
+
 
 
 const cartReducers = (state = initialState, action) => {
@@ -42,17 +43,19 @@ const cartReducers = (state = initialState, action) => {
     case ADD_TO_CART:
       let tergetItem = state.products.find(item => item.id === action.payload.id);
       let existed_item = state.cart.find(item => action.payload.id === item.id);
-
+      
       if (existed_item) {
         return {
           ...state,
-          cart: [...state.cart]
+          cart: [...state.cart],
+          
         }
       }
       else {
         return {
           ...state,
           cart: [...state.cart, tergetItem],
+         
         }
       }
 

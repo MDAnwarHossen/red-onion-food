@@ -61,7 +61,7 @@ const ModalArea = (props) => {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart,
+        cart: state.cartReducers.cart,
     }
 }
 

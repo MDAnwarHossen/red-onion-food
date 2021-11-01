@@ -17,9 +17,16 @@ import Map from "./Components/Map/Map";
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import Reservation from './Components/Reservation/Reservation';
 import Subscribe from "./Components/Subscribe/Subscribe";
+import Emailverification from "./Components/Emailverification/Emailverification";
+import { addUser } from "./redux/actions/loginActions";
+import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
+import DeliveryAddress from "./Components/DeliveryAddress/DeliveryAddress";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 
-function App() {
+function App(props) {
+
   return (
     <div className="App">
       <Router>
@@ -27,11 +34,14 @@ function App() {
         <NavigationBar></NavigationBar>
 
         <Switch>
-          <Route path="/cart">
+          <Route exact path="/cart">
             <Cart></Cart>
           </Route>
+          <PrivateRoute exact path="/deliveryAddress">
+            <DeliveryAddress></DeliveryAddress>
+          </PrivateRoute>
 
-          <Route path="/about">
+          <Route exact path="/about">
             <Header></Header>
             <AboutUs></AboutUs>
             <Reservation></Reservation>
@@ -39,14 +49,14 @@ function App() {
             <Footer></Footer>
           </Route>
 
-          <Route path="/reservation">
+          <Route exact path="/reservation">
             <Header></Header>
             <Reservation></Reservation>
             <Subscribe></Subscribe>
             <Footer></Footer>
           </Route>
 
-          <Route path="/contact">
+          <Route exact path="/contact">
             <Header></Header>
             <ContactUs></ContactUs>
             <Map></Map>
@@ -54,13 +64,21 @@ function App() {
             <Footer></Footer>
           </Route>
 
-          <Route path="/login">
+          <Route exact path="/login">
             <Login></Login>
             <Subscribe></Subscribe>
             <Footer></Footer>
+
+            {props && props.loginReducers && props.loginReducers.user && props.loginReducers.user.uid ? <Redirect to="/emailverification" /> : ''}
+
           </Route>
 
-          <Route exact path="/">
+          <Route exact path="/emailverification">
+            <Emailverification user={props.loginReducers.user}></Emailverification>
+            <Footer></Footer>
+          </Route>
+
+          <Route path="/">
             <Jumbotron></Jumbotron>
             <AboutUs></AboutUs>
             <FoodMenu></FoodMenu>
@@ -68,8 +86,8 @@ function App() {
             <Subscribe></Subscribe>
             <Footer></Footer>
           </Route>
-
         </Switch>
+
       </Router>
 
 
@@ -81,4 +99,15 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    loginReducers: state.loginReducers,
+  }
+}
+
+const mapDispatchToProps = {
+  addUser: addUser,
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+

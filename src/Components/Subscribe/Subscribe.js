@@ -42,14 +42,7 @@ const Subscribe = () => {
                                     <div className="col-3 d-flex justify-content-start">
                                         <button type="submit" className="btn btn-default"><FontAwesomeIcon icon={faAngleRight} className="fa align-top" /></button>
                                     </div>
-
                                 </div>
-
-
-
-
-
-
                             </form>
                         </div>
 

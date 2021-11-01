@@ -133,7 +133,7 @@ background-size: cover;
     transition: opacity .4s ease-in-out, visibility .4s ease-in-out
 }
 .user_options-forms .forms_title{
-      margin-bottom: 45px;
+      /* margin-bottom: 45px; */
 
       font-size: 1.5rem;
       font-weight: 500;
@@ -167,7 +167,7 @@ background-size: cover;
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 35px;
+    margin-top: 5px;
 }
 .user_options-forms .forms_buttons-forgot{
 font-family: 'Montserrat', sans-serif;
@@ -287,7 +287,7 @@ transition: color .2s ease-in-out;
 .user .contact-social{
   /* background: rgba(0,0,0,.2); */
   padding: 6px 7px 7px;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   display: table;
 }
 .user .contact-social button {

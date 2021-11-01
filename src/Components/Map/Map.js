@@ -11,7 +11,7 @@ const center = {
   lng: -38.523
 };
 const onLoad = marker => {
-    console.log('marker: ', marker)
+    
   }
 
 function Map() {
