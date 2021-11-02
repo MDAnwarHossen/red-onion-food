@@ -11,12 +11,14 @@ const FoodMenu = (props) => {
         wow.init();
     }, []);
     const { products } = props;
-    const [category, setCategory] = useState('breakfast');
+    // console.log(products);
+    const [category, setCategory] = useState('Breakfast');
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        const matchedProducts = products.filter(pd => pd.Category.toLowerCase() === category);
-        console.log(matchedProducts.length);
+        const matchedProducts = products.filter(pd => pd.Category.includes(category));
+        console.log(matchedProducts);
+        
         if (matchedProducts.length === 0) {
             setProduct(products)
         }else{
@@ -35,11 +37,11 @@ const FoodMenu = (props) => {
                 </div>
                 <div className="d-flex justify-content-center">
                     <button onClick={() => setCategory('all')} type="button" className="btn m-3">ALL</button>
-                    <button onClick={() => setCategory('breakfast')} type="button" className="btn m-3">STARTERS</button>
-                    <button onClick={() => setCategory('breakfast')} type="button" className="btn m-3">BREAKFAST</button>
-                    <button onClick={() => setCategory('lunch')} type="button" className="btn  m-3">LUNCH</button>
-                    <button onClick={() => setCategory('dinner')} type="button" className="btn  m-3">DINNER</button>
-                    <button onClick={() => setCategory('breakfast')} type="button" className="btn m-3">DESSERTS</button>
+                    <button onClick={() => setCategory('Starters')} type="button" className="btn m-3">STARTERS</button>
+                    <button onClick={() => setCategory('Breakfast')} type="button" className="btn m-3">BREAKFAST</button>
+                    <button onClick={() => setCategory('Lunch')} type="button" className="btn  m-3">LUNCH</button>
+                    <button onClick={() => setCategory('Dinner')} type="button" className="btn  m-3">DINNER</button>
+                    <button onClick={() => setCategory('Desserts')} type="button" className="btn m-3">DESSERTS</button>
                 </div>
                 <div className='row' style={{ overflow: "hidden" }}>
                     {
