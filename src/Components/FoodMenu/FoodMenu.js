@@ -4,28 +4,41 @@ import FoodItem from '../FoodItem/FoodItem';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import WOW from 'wowjs';
+import PaginatedItems from '../PaginatedItems/PaginatedItems';
+import ReactPaginate from 'react-paginate';
 
 const FoodMenu = (props) => {
+    const itemsPerPage = 6;
+
     useEffect(() => {
         const wow = new WOW.WOW();
         wow.init();
     }, []);
+
     const { products } = props;
-    // console.log(products);
     const [category, setCategory] = useState('Breakfast');
     const [product, setProduct] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
+
 
     useEffect(() => {
         const matchedProducts = products.filter(pd => pd.Category.includes(category));
-        console.log(matchedProducts);
-        
         if (matchedProducts.length === 0) {
             setProduct(products)
-        }else{
+        } else {
             setProduct(matchedProducts)
         }
-        
     }, [products, category])
+
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % product.length;
+        console.log(
+            `User requested page number ${event.selected}, which is offset ${newOffset}`
+        );
+        setItemOffset(newOffset);
+    };
+
     return (
         <section>
             <div className="container wow fadeInUp">
@@ -36,17 +49,36 @@ const FoodMenu = (props) => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-center">
-                    <button onClick={() => setCategory('all')} type="button" className="btn m-3">ALL</button>
-                    <button onClick={() => setCategory('Starters')} type="button" className="btn m-3">STARTERS</button>
-                    <button onClick={() => setCategory('Breakfast')} type="button" className="btn m-3">BREAKFAST</button>
-                    <button onClick={() => setCategory('Lunch')} type="button" className="btn  m-3">LUNCH</button>
-                    <button onClick={() => setCategory('Dinner')} type="button" className="btn  m-3">DINNER</button>
-                    <button onClick={() => setCategory('Desserts')} type="button" className="btn m-3">DESSERTS</button>
+                    <button onClick={() => {setCategory('all'); setItemOffset(0)}} type="button" className="btn m-3">ALL</button>
+                    <button onClick={() => {setCategory('Starters'); setItemOffset(0)}} type="button" className="btn m-3">STARTERS</button>
+                    <button onClick={() => {setCategory('Breakfast'); setItemOffset(0)}} type="button" className="btn m-3">BREAKFAST</button>
+                    <button onClick={() => {setCategory('Lunch'); setItemOffset(0)}} type="button" className="btn  m-3">LUNCH</button>
+                    <button onClick={() => {setCategory('Dinner'); setItemOffset(0)}} type="button" className="btn  m-3">DINNER</button>
+                    <button onClick={() => {setCategory('Desserts'); setItemOffset(0)}} type="button" className="btn m-3">DESSERTS</button>
                 </div>
                 <div className='row' style={{ overflow: "hidden" }}>
-                    {
-                        product.map(food => <FoodItem food={food} key={food.id}></FoodItem>)
-                    }
+                    <PaginatedItems itemsPerPage={itemsPerPage} items={product} pageCount={pageCount} setPageCount={setPageCount} itemOffset={itemOffset} setItemOffset={setItemOffset}></PaginatedItems>
+                </div>
+                <div>
+                    <ReactPaginate
+                        nextLabel="next >"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel={"< previous"}
+                        pageClassName={"page-item"}
+                        pageLinkClassName={"page-link"}
+                        previousClassName={"page-item"}
+                        previousLinkClassName={"page-link"}
+                        nextClassName={"page-item"}
+                        nextLinkClassName={"page-link"}
+                        breakLabel={"..."}
+                        breakClassName={"page-item"}
+                        breakLinkClassName={"page-link"}
+                        containerClassName={'pagination d-flex justify-content-center'}
+                        activeClassName={"active"}
+                        renderOnZeroPageCount={null}
+                    />
                 </div>
                 <div className="d-flex justify-content-center">
                     <Link to="/cart"><button type="button" className="btn btn-secondary m-3">Checkout Your Food</button></Link>
