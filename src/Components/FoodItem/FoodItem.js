@@ -22,8 +22,8 @@ const FoodItem = (props) => {
 
     return (
         <>
-            <div onClick={() => setModalShow(true)} data-aos={dataAos} className='food-item col-md-4 col-6 mb-3 mt-4 '>
-                <div className="card">
+            <div onClick={() => setModalShow(true)} data-aos={dataAos} className='food-item col-md-4 col-sm-6 mb-3 mt-4'>
+                <div className="card h-100">
                     <img data-sizes="auto" src="https://i.ibb.co/Y7pNtbj/Untitled-1.png" data-src={img} className="card-img-top p-3 image lazyload" alt="" />
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>

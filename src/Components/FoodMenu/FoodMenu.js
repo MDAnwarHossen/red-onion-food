@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './FoodMenu.css';
 import FoodItem from '../FoodItem/FoodItem';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import WOW from 'wowjs';
 import PaginatedItems from '../PaginatedItems/PaginatedItems';
@@ -38,7 +38,16 @@ const FoodMenu = (props) => {
         );
         setItemOffset(newOffset);
     };
+    const items = ['all', 'Starters', 'Breakfast', 'Lunch', 'Dinner', 'Desserts']
+    const [state, setState] = useState({
+        activeItem: 2,
+    });
 
+    const handleItemClick = (index) => {
+        setState({
+            activeItem: index,
+        })
+    }
     return (
         <section>
             <div className="container wow fadeInUp">
@@ -48,13 +57,12 @@ const FoodMenu = (props) => {
                         <h5>Little things make us best in town</h5>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center">
-                    <button onClick={() => {setCategory('all'); setItemOffset(0)}} type="button" className="btn m-3">ALL</button>
-                    <button onClick={() => {setCategory('Starters'); setItemOffset(0)}} type="button" className="btn m-3">STARTERS</button>
-                    <button onClick={() => {setCategory('Breakfast'); setItemOffset(0)}} type="button" className="btn m-3">BREAKFAST</button>
-                    <button onClick={() => {setCategory('Lunch'); setItemOffset(0)}} type="button" className="btn  m-3">LUNCH</button>
-                    <button onClick={() => {setCategory('Dinner'); setItemOffset(0)}} type="button" className="btn  m-3">DINNER</button>
-                    <button onClick={() => {setCategory('Desserts'); setItemOffset(0)}} type="button" className="btn m-3">DESSERTS</button>
+                <div className="row menu-item p-2">
+                    {
+                    items.map((item, index) => <button key={index}
+                         className={`btn col-md-2 col-4 ${state.activeItem === index ? 'active' : ''}`}
+                         onClick={() => { handleItemClick(index); setCategory(item); setItemOffset(0) }}>{item}</button>)
+                    }
                 </div>
                 <div className='row' style={{ overflow: "hidden" }}>
                     <PaginatedItems itemsPerPage={itemsPerPage} items={product} pageCount={pageCount} setPageCount={setPageCount} itemOffset={itemOffset} setItemOffset={setItemOffset}></PaginatedItems>

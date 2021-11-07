@@ -4,13 +4,26 @@
 
 #booking {
 	font-family: 'Montserrat', sans-serif;
-	background-image: url('../../hot-onion-restaurent-resources-master/reservation2.png');
+	background-image: url('../../hot-onion-restaurent-resources-master/reserve_3.jpg');
 	background-size: cover;
-	background-position: center;
-	color: red;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 100%; 
+}
+.reservation-opacity{
+	padding: 30px;
+    margin: 0;
+    background-color: #333333;
+    border: 1px solid black;
+    opacity: 0.8;
+	height: 85vh;
+	width: 100vw; 
+
 }
 
-#booking::before {
+
+/* #booking::before {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -19,7 +32,7 @@
 	top: 0;
     background: rgba(189, 189, 189, 0.1);
 
-}
+} */
 .reservation {
 	position: relative;
 	height: 85vh;
@@ -72,13 +85,13 @@
 
 .booking-cta h2 {
 	text-transform: uppercase;
-	color: #212121;
+	color: #fff;
 	font-weight: 800;
 	font-family: raleway,sans-serif;
 }
 
 .booking-cta p {
-	color: #212121;
+	color: #fff;
 	font-weight: 700;
 	font-size: 20px;
 }

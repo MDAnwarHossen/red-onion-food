@@ -23,7 +23,7 @@ const NavigationBar = (props) => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
     })
-    let navbarClasses = ['navbar navbar-expand-md navbar-dark'];
+    let navbarClasses = ['navbar main-menu navbar-expand-md navbar-dark'];
     if (scrolled) {
         navbarClasses.push('fixed-navbar');
     }
@@ -33,33 +33,35 @@ const NavigationBar = (props) => {
     return (
         <div>
             <nav className={navbarClasses.join(" ")}>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <NavLink to="/">  <img className="logo" src={Logo} alt="" /></NavLink>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <NavLink to="/">  <img className="logo" src={Logo} alt="" /></NavLink>
-                    <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+
+                    <ul className="navbar-nav ml-auto mt-2 mt-lg-0 align-items-center">
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/" activeStyle={{
+                            <NavLink data-toggle="collapse" data-target="#navbarTogglerDemo01" className="nav-link" exact to="/" activeStyle={{
                                 fontWeight: "bold",
                                 color: "red"
                             }}>HOME</NavLink>
                         </li>
 
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/about" activeStyle={{
+                            <NavLink data-toggle="collapse" data-target="#navbarTogglerDemo01" className="nav-link" exact to="/about" activeStyle={{
                                 fontWeight: "bold",
                                 color: "red"
                             }}>ABOUT</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/reservation" activeStyle={{
+                            <NavLink data-toggle="collapse" data-target="#navbarTogglerDemo01" className="nav-link" exact to="/reservation" activeStyle={{
                                 fontWeight: "bold",
                                 color: "red"
                             }}>RESERVATION</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/contact" activeStyle={{
+                            <NavLink data-toggle="collapse" data-target="#navbarTogglerDemo01" className="nav-link" exact to="/contact" activeStyle={{
                                 fontWeight: "bold",
                                 color: "red"
                             }}>CONTACT</NavLink>
@@ -73,7 +75,7 @@ const NavigationBar = (props) => {
                                     <a class="dropdown-item" href="/">My Orders</a>
                                     <a class="dropdown-item" href="/">Logout</a>
                                 </div>
-                            </div> : <NavLink className="nav-link" exact to="/login" activeStyle={{
+                            </div> : <NavLink data-toggle="collapse" data-target="#navbarTogglerDemo01" className="nav-link" exact to="/login" activeStyle={{
                                 fontWeight: "bold",
                                 color: "red"
                             }}>
@@ -82,7 +84,7 @@ const NavigationBar = (props) => {
 
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link shopping-cart" exact to="/cart"><FontAwesomeIcon icon={faShoppingCart} /> <span id="lblCartCount" className="badge badge-warning">{props.cart.length}</span>
+                            <NavLink data-toggle="collapse" data-target="#navbarTogglerDemo01" className="nav-link shopping-cart" exact to="/cart"><FontAwesomeIcon icon={faShoppingCart} /> <span id="lblCartCount" className="badge badge-warning">{props.cart.length}</span>
 
                             </NavLink>
                         </li>

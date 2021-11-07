@@ -53,6 +53,7 @@ const Reservation = () => {
 
 	return (
 		<section id="booking" className="reservation">
+			<div className="reservation-opacity">
 			<div className="container">
 				<div className="row form-area">
 					<div className="col-md-6 p-0">
@@ -159,6 +160,9 @@ const Reservation = () => {
 					</div>
 				</div>
 			</div>
+
+			</div>
+			
 		</section>
 	);
 };
