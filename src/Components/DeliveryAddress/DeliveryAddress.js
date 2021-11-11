@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import OrderSummary from './OrderSummary';
 
 const DeliveryAddress = (props) => {
-    const { cart, removeFromCart } = props;
+    const { cart } = props;
     const { register, handleSubmit, control, reset, formState: { errors } } = useForm();
     const { register: register2, handleSubmit: handleSubmit2, reset: reset2, formState: { errors: errors2 } } = useForm();
     const defaultValues = {

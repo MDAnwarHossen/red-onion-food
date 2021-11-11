@@ -1,6 +1,13 @@
 /* *{
 	box-sizing: border-box;
 } */
+.tittle-block h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: raleway,sans-serif;
+    text-transform: uppercase;
+    color: #4b4741;
+    text-align: center;
+    font-weight: 800 !important;
+}
 .home {
     position: relative;
     height: 100vh;
@@ -26,6 +33,7 @@
     font-size: 3.5rem;
 	text-transform: uppercase;
 	text-align: center;
+   
 }
 .home .tittle-block h2 {
     text-transform: none;

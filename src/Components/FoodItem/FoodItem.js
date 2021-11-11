@@ -12,7 +12,7 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const FoodItem = (props) => {
 
-    const { id, img, title, shortDescription, longDescription, price, Category, dataAos } = props.food;
+    const { img, title, shortDescription, price, dataAos } = props.food;
 
     const [modalShow, setModalShow] = useState(false);
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose, faPlus, faMinus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -6,22 +6,12 @@ import './ModalArea.css';
 import { addToCart, decrement, increment, } from '../../redux/actions/cartActions';
 import { connect } from 'react-redux';
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
-    }
-};
 
 Modal.setAppElement('#root')
 
 const ModalArea = (props) => {
     const { addToCart, food, onHide, show } = props;
-    const { id, img, title, shortDescription, longDescription, price, quantity } = food;
+    const { id, img, title, longDescription, price, quantity } = food;
     return (
         <div>
             <Modal

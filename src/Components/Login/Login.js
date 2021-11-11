@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebookSquare, faGoogle, faGithubSquare, faMicrosoft, faYahoo } from '@fortawesome/free-brands-svg-icons';
-import { faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import socialNetworks, { createAccountWithEmailAndPassword, fbProvider, gitHubProvider, googleProvider, initialzeLoginFarmworks, microsoftProvider, signInAccount, twitterProvider, updateUserProfile, yahooProvider } from './loginManager';
 import { addUser } from '../../redux/actions/loginActions';
 import { connect } from 'react-redux';

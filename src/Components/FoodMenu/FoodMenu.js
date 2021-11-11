@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './FoodMenu.css';
-import FoodItem from '../FoodItem/FoodItem';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import WOW from 'wowjs';
 import PaginatedItems from '../PaginatedItems/PaginatedItems';

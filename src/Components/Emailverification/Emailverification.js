@@ -1,6 +1,5 @@
 import React from 'react';
 import './Emailverification.css';
-import { Link } from 'react-router-dom';
 
 
 const Emailverification = (props) => {

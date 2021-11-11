@@ -1,6 +1,6 @@
 import React from 'react';
 import './Subscribe.css';
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 const defaultValues = {
@@ -9,7 +9,7 @@ const defaultValues = {
 };
 
 const Subscribe = () => {
-    const { register, control, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register,  handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = (data) => {
 
 

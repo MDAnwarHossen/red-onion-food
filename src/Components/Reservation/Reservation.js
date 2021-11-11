@@ -1,21 +1,16 @@
 import 'date-fns';
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import ReactSelect from "react-select";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-
 import './Reservation.css';
 import {
 	MuiPickersUtilsProvider,
 	KeyboardTimePicker,
 	KeyboardDatePicker,
-	DatePicker,
-	TimePicker,
 } from '@material-ui/pickers';
 
 const defaultValues = {
@@ -25,16 +20,9 @@ const defaultValues = {
 
 
 const Reservation = () => {
-	const [age, setAge] = React.useState('');
-
-	const handleChange = (event) => {
-		setAge(event.target.value);
-	};
-
-	const [selectedDate, handleDateChange] = useState(new Date());
-	const [selectedTime, handleTimeChange] = useState(selectedDate.getTime());
 	
-
+	const [selectedDate] = useState(new Date());
+	
 	const { register, control, handleSubmit, reset, formState: { errors } } = useForm();
 	const onSubmit = (data) => {
 		
@@ -44,7 +32,8 @@ const Reservation = () => {
 		var day = selectedDate.getDate();
 		var year = selectedDate.getFullYear();
 		var newdate = month + "/" + day + "/" + year;
-		let booking = { Date: newdate, Time: dateObjTime, Guest: age, Phone: data.MobileNumber }
+		let booking = { Date: newdate, Time: dateObjTime, Guest: data.Person.value, Phone: data.MobileNumber }
+		console.log(booking);
 		
 		reset(defaultValues)
 
