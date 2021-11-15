@@ -11,22 +11,22 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-md-4 col-sm-12">
                         <h1>About us</h1>
-                        <p>Duis leo justo, condimentum at purus eu,Aenean sed dolor sem. Etiam massa libero, auctor vitae egestas et, accumsan quis nunc.Duis leo justo, condimentum at purus eu, posuere pretium tellus.</p>
-                        <a href="./about.html">Read more →</a>
+                        <p>We welcome you to sit back, unwind and appreciate the lovely sights and hints of the ocean while our best gourmet expert sets you up a scrumptious dinner utilizing the best and freshest ingredients.Ren Onion's legacy comes from The parent  Restaurant which was built up in 1953.</p>
+                        <a href="/">Read more →</a>
                     </div>
                     <div className="col-md-4  col-sm-6">
                         <h1>Recent post</h1>
                         <div className="footer-blog clearfix">
-                            <a href="./blog_right_sidebar.html">
-                                <img src="https://demo.web3canvas.com/themeforest/tomato/img/thumb8.png" className="img-responsive footer-photo" alt="blog photos" />
-                                <p className="footer-blog-text">Hand picked ingredients for our best customers</p>
+                            <a target='_blank' rel='noreferrer' href="https://iamafoodblog.com/simmer-pot-recipes/" blank>
+                                <img src="https://iamafoodblog.b-cdn.net/wp-content/uploads/2021/11/simmer-pot-8481w-1024x683.webp" className="img-responsive footer-photo" alt="blog photos" />
+                                <p className="footer-blog-text">A simmer pot is the absolute best way to make your home smell warm and inviting.</p>
                                 <p className="footer-blog-date">29 may 2021</p>
                             </a>
                         </div>
                         <div className="footer-blog clearfix last">
-                            <a href="./blog_right_sidebar.html">
-                                <img src="https://demo.web3canvas.com/themeforest/tomato/img/thumb9.png" className="img-responsive footer-photo" alt="blog photos" />
-                                <p className="footer-blog-text">Daily special foods that you will going to love</p>
+                            <a target='_blank' rel='noreferrer' href="https://iamafoodblog.com/basque-cheesecake/">
+                                <img src="https://iamafoodblog.b-cdn.net/wp-content/uploads/2021/09/basque-cheesecake-8392w-1024x683.webp" className="img-responsive footer-photo" alt="blog photos" />
+                                <p className="footer-blog-text">The easiest, creamiest, best cheesecake you’ll ever make, period.</p>
                                 <p className="footer-blog-date">29 may 2021</p>
                             </a>
                         </div>
@@ -54,8 +54,8 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className="footer-address">
-                            <p><FontAwesomeIcon className="fa" icon={faMapMarkerAlt} />28 Seventh Avenue, Neew York, 10014</p>
-                            <p className ="text-nowrap" ><FontAwesomeIcon className="fa" icon={faPhoneAlt} />Phone: (415) 124-5678</p>
+                            <p><FontAwesomeIcon className="fa" icon={faMapMarkerAlt} />156 Cumberland St, Toronto, ON M5R 1A8, Canada</p>
+                            <p className ="text-nowrap" ><FontAwesomeIcon className="fa" icon={faPhoneAlt} />Phone: +1 416-428-6641</p>
                             <p className ="text-nowrap"><FontAwesomeIcon className="fa" icon={faEnvelope} />support@restaurant.com</p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ const Footer = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <p><FontAwesomeIcon className="fa" icon={faCopyright} /> 2021.Tomato.All rights reserved. Designed by <FontAwesomeIcon className="fa" icon={faHeart} /> Anwar</p>
+                            <p><FontAwesomeIcon className="fa" icon={faCopyright} /> 2021.Tomato.All rights reserved. Developed by <FontAwesomeIcon className="fa" icon={faHeart} /> Anwar</p>
                         </div>
                     </div>
                 </div>

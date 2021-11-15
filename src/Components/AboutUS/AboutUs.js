@@ -42,11 +42,20 @@ const AboutUs = () => {
                     </div>
                     <div className="col-lg-8 about-us">
                         <p>
-                            Cras ut viverra eros. Phasellus sollicitudin sapien id luctus tempor. Sed hend rerit inter dum sagittis. Donec nunc lacus, dapibus nec interdum eget, ultrices eget justo. Nam purus lacus, efficitur eget laoreet sed, finibus nec neque. Cras eget enim in diam dapibus sagittis. In massa est, dignissim in libero ac, fringilla ornare mi. Etiam interdum ligula purus.
+                        Since our modest beginnings in 2005 with a little space in Toronto’s stylish Yorkville locale, Red Onion's development has been enlivened with the energy to cook and serve solid, Indian-roused takeout food.
                         </p>
 
                         <p>
-                            Ultrices eget justo. Nam purus lacus, efficitur eget laoreet sed, finibus nec neque. Cras eget enim in diam dapibus sagittis. In massa est, dignissim in libero ac, fringilla ornare.
+                        In contrast to other Indian eateries, Red Onion was made with the explicit expectation to appear as something else.
+                        </p>
+                        <p>
+                        We realize numerous individuals love Indian sustenance, yet a large number of them loathe or are unconscious of the regularly unfortunate fixings that make run-of-the-mill Indian nourishment taste so great.
+                        </p>
+                        <p>
+                        Our menu highlights things that utilization the sound and fragrant flavors, however, forgets the stuffing ghee, spread, oil, and overwhelming cream.
+                        </p>
+                        <p>
+                        Red Onion has developed to incorporate four superb takeout areas in Toronto with additional to come sooner rather than later. Our group takes pride in the way that we can furnish our new and faithful clients with extraordinary tasting Indian-roused nourishment that is not normal for that at some other Indian eatery you visit.
                         </p>
                         <img src={signature} alt="signature" />
                     </div>

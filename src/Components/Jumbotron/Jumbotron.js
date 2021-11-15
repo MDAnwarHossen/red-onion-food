@@ -14,7 +14,7 @@ const Jumbotron = () => {
                     </a>
                 </div>
                     <h1 className="" style={{opacity: 1}}>DELICIOUS Food</h1>
-                    <h2 className="" style={{opacity: 1}}>Red Onion is a delitious restaurant website template</h2>
+                    <h2 className="" style={{opacity: 1}}>For every special occasion, there’s Red Onion</h2>
             </div>
             <div className="scroll-down hidden-xs" style={{opacity: 1}}>
                     <a href="#about">

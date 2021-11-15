@@ -14,8 +14,8 @@ const ContactUs = () => {
                         <div className="col-md-6">
                             <h3 className="text-left no-margin-top">Address</h3>
                             <div className="footer-address contact-info">
-                                <p><FontAwesomeIcon className="fa" icon={faMapMarkerAlt} />28 Seventh Avenue, Neew York, 10014</p>
-                                <p className="text-nowrap" ><FontAwesomeIcon className="fa" icon={faPhoneAlt} />Phone: (415) 124-5678</p>
+                                <p><FontAwesomeIcon className="fa" icon={faMapMarkerAlt} />156 Cumberland St, Toronto, ON M5R 1A8, Canada</p>
+                                <p className="text-nowrap" ><FontAwesomeIcon className="fa" icon={faPhoneAlt} />Phone: +1 416-428-6641</p>
                                 <p className="text-nowrap"><FontAwesomeIcon className="fa" icon={faEnvelope} />support@restaurant.com</p>
                             </div>
                             <br />
