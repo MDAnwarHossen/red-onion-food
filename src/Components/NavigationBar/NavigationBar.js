@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 
 const NavigationBar = (props) => {
+    const {user} = props;
     const [scrolled, setScrolled] = useState(false);
 
     const handleScroll = () => {
@@ -68,8 +69,8 @@ const NavigationBar = (props) => {
                         </li>
 
                         <li className="nav-item">
-                            {props.user && props.user.email ? <div className="dropdown">
-                                <button type="button" className="btn btn-danger" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><FontAwesomeIcon icon={faUser} />{props.user.displayName}</button>
+                            {user && user.email ? <div className="dropdown">
+                                <button type="button" className="btn btn-danger" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span className="dropdownMenuButtonIcon"><FontAwesomeIcon icon={faUser} /></span>{user && user.displayName}</button>
                                 <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/">Manage My Account</a>
                                     <a class="dropdown-item" href="/">My Orders</a>

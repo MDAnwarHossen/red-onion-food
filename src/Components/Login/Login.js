@@ -4,9 +4,10 @@ import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebookSquare, faGoogle, faGithubSquare, faMicrosoft, faYahoo } from '@fortawesome/free-brands-svg-icons';
-import socialNetworks, { createAccountWithEmailAndPassword, fbProvider, gitHubProvider, googleProvider, initialzeLoginFarmworks, microsoftProvider, signInAccount, twitterProvider, updateUserProfile, yahooProvider } from './loginManager';
+import socialNetworks, { fbProvider, gitHubProvider, googleProvider, initialzeLoginFarmworks, microsoftProvider, signInAccount, twitterProvider, yahooProvider } from './loginManager';
 import { addUser } from '../../redux/actions/loginActions';
 import { connect } from 'react-redux';
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from '@firebase/auth';
 
 
 
@@ -33,7 +34,7 @@ const Login = (props) => {
         socialNetworks(provider)
             .then((res) => {
                 props.addUser(res);
-                console.log(res);
+                history.replace(from);
             })
     }
 
@@ -41,7 +42,6 @@ const Login = (props) => {
     const loginOldAccount = (data) => {
         signInAccount(data.email, data.password)
             .then((res) => {
-                console.log(res.displayName);
                 setResult(res);
                 props.addUser(res);
                 history.replace(from);
@@ -52,15 +52,51 @@ const Login = (props) => {
     };
 
     //...............Create a password-based account ..............................
+    // const createAccount = (data) => {
+    //     createAccountWithEmailAndPassword(data.email, data.password)
+    //         .then(async(res) => {
+    //             updateUserProfile(data.fullName);
+    //             setResult(res);
+    //             props.addUser(res);
+    //             history.replace(from);
+    //             if (res.uid) {
+    //                 reset2(defaultValues);
+    //             }
+    //         });
+    // };
+
+    //...............Create a password-based account ..............................
     const createAccount = (data) => {
-        createAccountWithEmailAndPassword(data.email, data.password)
-            .then((res) => {
-                updateUserProfile(data.fullName);
-                setResult(res);
-                props.addUser(res);
-                if (res.uid) {
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, data.email, data.password)
+            .then(async(userCredential) => {
+                let user = userCredential.user;
+                //........................Update a user's profile.....................
+                await updateProfile(auth.currentUser, {
+                    displayName: data.fullName,
+                }).then(() => {
+                    // Profile updated!
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
+                await user.reload();
+                user = userCredential.user;
+                setResult(user);
+                props.addUser(user);
+                history.replace(from);
+                if (user.uid) {
                     reset2(defaultValues);
                 }
+                // ...
+            })
+            .catch((error) => {
+                const errorInfo = {};
+                errorInfo.errorCode = error.code;
+                errorInfo.errorMessage = error.message;
+                console.log(errorInfo);
+                // ..
             });
     };
 

@@ -69,14 +69,14 @@ function App(props) {
             <Subscribe></Subscribe>
             <Footer></Footer>
 
-            {props && props.loginReducers && props.loginReducers.user && props.loginReducers.user.uid ? <Redirect to="/emailverification" /> : ''}
+            {/* {props && props.loginReducers && props.loginReducers.user && props.loginReducers.user.uid ? <Redirect to="/emailverification" /> : ''} */}
 
           </Route>
 
-          <Route exact path="/emailverification">
+          {/* <Route exact path="/emailverification">
             <Emailverification user={props.loginReducers.user}></Emailverification>
             <Footer></Footer>
-          </Route>
+          </Route> */}
 
           <Route path="/">
             <Jumbotron></Jumbotron>

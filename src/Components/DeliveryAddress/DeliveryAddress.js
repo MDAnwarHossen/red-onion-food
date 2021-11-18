@@ -169,7 +169,7 @@ const DeliveryAddress = (props) => {
                     <table className="table table-dark">
                         <tbody>
                             {
-                                cart.map((item, index) => <OrderSummary item={item} index={index}></OrderSummary>)
+                                cart.map((item, index) => <OrderSummary item={item} index={index} key={index}></OrderSummary>)
                             }
                         
                             <tr className ="special">

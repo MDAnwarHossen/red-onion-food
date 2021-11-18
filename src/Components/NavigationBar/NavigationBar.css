@@ -54,5 +54,8 @@
   .custom-dropdown-menu{
     background-color: #9E9E9E !important;
   }
+  .dropdownMenuButtonIcon {
+    padding: 10px;
+  }
 
 
