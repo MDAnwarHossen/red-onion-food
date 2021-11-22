@@ -5,6 +5,8 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
+import loadable from '@loadable/component';
+/*
 import AboutUs from './Components/AboutUS/AboutUs';
 import Cart from "./Components/Cart/Cart";
 import ContactUs from "./Components/ContactUs/ContactUs";
@@ -17,13 +19,28 @@ import Map from "./Components/Map/Map";
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import Reservation from './Components/Reservation/Reservation';
 import Subscribe from "./Components/Subscribe/Subscribe";
-import Emailverification from "./Components/Emailverification/Emailverification";
+*/
 import { addUser } from "./redux/actions/loginActions";
 import { connect } from "react-redux";
-import { Redirect } from 'react-router-dom';
+/*
 import DeliveryAddress from "./Components/DeliveryAddress/DeliveryAddress";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+*/
 
+const AboutUs = loadable(() => import('./Components/AboutUS/AboutUs'));
+const Cart = loadable(() => import('./Components/Cart/Cart'));
+const ContactUs = loadable(() => import('./Components/ContactUs/ContactUs'));
+const FoodMenu = loadable(() => import('./Components/FoodMenu/FoodMenu'));
+const Footer = loadable(() => import('./Components/Footer/Footer'));
+const Header = loadable(() => import('./Components/Header/Header'));
+const Jumbotron = loadable(() => import('./Components/Jumbotron/Jumbotron'));
+const Login = loadable(() => import('./Components/Login/Login'));
+const Map = loadable(() => import('./Components/Map/Map'));
+const NavigationBar = loadable(() => import('./Components/NavigationBar/NavigationBar'));
+const Subscribe = loadable(() => import('./Components/Subscribe/Subscribe'));
+const DeliveryAddress = loadable(() => import('./Components/DeliveryAddress/DeliveryAddress'));
+const PrivateRoute = loadable(() => import('./Components/PrivateRoute/PrivateRoute'));
+const Reservation = loadable(() => import('./Components/Reservation/Reservation'));
 
 function App(props) {
 
