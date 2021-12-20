@@ -52,7 +52,7 @@ const FoodMenu = (props) => {
             <div className="container wow fadeInUp">
                 <div className="col-lg-12">
                     <div className="page-header wow fadeInDown">
-                        <h1>our menu</h1>
+                        <h1 className="page-header-h1">our menu</h1>
                         <h5>Little things make us best in town</h5>
                     </div>
                 </div>

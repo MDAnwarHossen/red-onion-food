@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './NavigationBar.css';
-import Logo from "../../hot-onion-restaurent-resources-master/logo.png";
+import Logo from "../../hot-onion-restaurent-resources-master/logo.webp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
@@ -34,7 +34,7 @@ const NavigationBar = (props) => {
     return (
         <div>
             <nav className={navbarClasses.join(" ")}>
-                <NavLink to="/">  <img className="logo" src={Logo} alt="" /></NavLink>
+                <NavLink to="/" aria-label ="Logo"> <img className="logo" src={Logo} alt="" /></NavLink>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

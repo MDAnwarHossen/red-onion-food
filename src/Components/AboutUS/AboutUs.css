@@ -2,11 +2,12 @@
     border: none;
     margin: 80px 0 40px;
 }
-.page-header h1 {
+.page-header-h1 {
     font-family: raleway,sans-serif;
     text-transform: uppercase;
     text-align: center;
     font-weight: 800;
+    font-display: swap;
 }
 .page-header h5 {
     text-align: center;
@@ -23,10 +24,14 @@
 }
 .about-us p{
     font-family: josefin sans,sans-serif;
-    color: #212121;
     font-size: 22px;
+    font-display: swap;
 }
 .about{
     background-color:#BDBDBD;
     padding-bottom: 80px;
+}
+.signature{
+    width: 321px;
+    height: 66px;
 }

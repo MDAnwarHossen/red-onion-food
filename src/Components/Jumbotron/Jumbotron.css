@@ -52,3 +52,11 @@ img {
     vertical-align: middle;
 	border: 0;
 }
+.imageLogo{
+    width: 330px;
+    height: 300px;
+}
+.arrow-down{
+    width: 35px;
+    height: 58px;
+}

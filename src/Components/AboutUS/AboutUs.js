@@ -1,8 +1,8 @@
 import React from 'react';
 import './AboutUs.css';
-import image1 from "../../hot-onion-restaurent-resources-master/Image/thumb1.png";
+import image1 from "../../hot-onion-restaurent-resources-master/Image/thumb1.webp";
 import image2 from "../../hot-onion-restaurent-resources-master/Image/thumb2.png";
-import image3 from "../../hot-onion-restaurent-resources-master/Image/thumb3.png";
+import image3 from "../../hot-onion-restaurent-resources-master/Image/thumb3.webp";
 import signature from "../../hot-onion-restaurent-resources-master/Image/signature.png";
 
 
@@ -14,7 +14,7 @@ const AboutUs = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="page-header wow fadeInDown">
-                            <h1>the restaurant</h1>
+                            <h1 className="page-header-h1">the restaurant</h1>
                             <h5>A little about us and a breif history of how we started.</h5>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const AboutUs = () => {
                         <p>
                         Red Onion has developed to incorporate four superb takeout areas in Toronto with additional to come sooner rather than later. Our group takes pride in the way that we can furnish our new and faithful clients with extraordinary tasting Indian-roused nourishment that is not normal for that at some other Indian eatery you visit.
                         </p>
-                        <img src={signature} alt="signature" />
+                        <img className="signature" src={signature} alt="signature" />
                     </div>
                 </div>
             </div>

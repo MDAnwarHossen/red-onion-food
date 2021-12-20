@@ -3,6 +3,8 @@
     cursor: pointer;
 }
 .image{
+    width: 100%;
+    height: 60%;
     transition: transform .4s;
 }
 .image:hover{

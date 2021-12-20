@@ -17,6 +17,7 @@
 .user input::placeholder{
     font-size: .85rem;
     font-family: 'Montserrat', sans-serif;
+    font-display: swap;
     font-weight: 300;
     letter-spacing: .1rem;
     color: #ccc;
@@ -152,6 +153,7 @@ background-size: cover;
       padding: 6px 20px 6px 6px;
 
       font-family: 'Montserrat', sans-serif;
+      font-display: swap;
       font-size: 1rem;
       font-weight: 300;
       color: darken(#ccc, 30%);
@@ -171,6 +173,7 @@ background-size: cover;
 }
 .user_options-forms .forms_buttons-forgot{
 font-family: 'Montserrat', sans-serif;
+font-display: swap;
 letter-spacing: .1rem;
 color: #ccc;
 text-decoration: underline;
@@ -188,6 +191,7 @@ transition: color .2s ease-in-out;
 
         font-size: 1rem;
         font-family: 'Montserrat', sans-serif;
+        font-display: swap;
         font-weight: 300;
         color: #fff;
         text-transform: uppercase;

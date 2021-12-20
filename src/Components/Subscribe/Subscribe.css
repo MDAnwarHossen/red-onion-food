@@ -17,11 +17,13 @@
     line-height: 45px;
     font-size: 3vw;
     font-family: raleway,sans-serif;
+    font-display: swap;
     text-transform: uppercase;
     color: #757575;
   }
   .subscribe p {
     font-family: josefin sans,sans-serif;
+    font-display: swap;
     color: #757575;
     font-size: 1.8vw;
 }

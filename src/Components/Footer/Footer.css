@@ -1,6 +1,6 @@
 
 .footer {
-    background-image: url('../../hot-onion-restaurent-resources-master/footerbg.png');
+    background-image: url('../../hot-onion-restaurent-resources-master/footerbg.webp');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -12,6 +12,7 @@
     text-align: left;
     margin: 60px 0 26px;
     font-family: raleway,sans-serif;
+    font-display: swap;
     text-transform: uppercase;
     font-weight: 800;
 }
@@ -34,6 +35,8 @@
 .footer .footer-blog img{
     float: left;
     margin-right: 15px;
+    width: 100px;
+    height: 67px;
 }
 .footer .footer-social-icons {
     background: rgba(0,0,0,.2);

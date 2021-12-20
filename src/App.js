@@ -1,11 +1,11 @@
-
+import React, { Suspense, lazy } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import './App.css';
-import loadable from '@loadable/component';
+
+
 /*
 import AboutUs from './Components/AboutUS/AboutUs';
 import Cart from "./Components/Cart/Cart";
@@ -27,26 +27,29 @@ import DeliveryAddress from "./Components/DeliveryAddress/DeliveryAddress";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 */
 
-const AboutUs = loadable(() => import('./Components/AboutUS/AboutUs'));
-const Cart = loadable(() => import('./Components/Cart/Cart'));
-const ContactUs = loadable(() => import('./Components/ContactUs/ContactUs'));
-const FoodMenu = loadable(() => import('./Components/FoodMenu/FoodMenu'));
-const Footer = loadable(() => import('./Components/Footer/Footer'));
-const Header = loadable(() => import('./Components/Header/Header'));
-const Jumbotron = loadable(() => import('./Components/Jumbotron/Jumbotron'));
-const Login = loadable(() => import('./Components/Login/Login'));
-const Map = loadable(() => import('./Components/Map/Map'));
-const NavigationBar = loadable(() => import('./Components/NavigationBar/NavigationBar'));
-const Subscribe = loadable(() => import('./Components/Subscribe/Subscribe'));
-const DeliveryAddress = loadable(() => import('./Components/DeliveryAddress/DeliveryAddress'));
-const PrivateRoute = loadable(() => import('./Components/PrivateRoute/PrivateRoute'));
-const Reservation = loadable(() => import('./Components/Reservation/Reservation'));
+import './App.css';
+
+const AboutUs = lazy(() => import('./Components/AboutUS/AboutUs'));
+const Cart = lazy(() => import('./Components/Cart/Cart'));
+const ContactUs = lazy(() => import('./Components/ContactUs/ContactUs'));
+const FoodMenu = lazy(() => import('./Components/FoodMenu/FoodMenu'));
+const Footer = lazy(() => import('./Components/Footer/Footer'));
+const Header = lazy(() => import('./Components/Header/Header'));
+const Jumbotron = lazy(() => import('./Components/Jumbotron/Jumbotron'));
+const Login = lazy(() => import('./Components/Login/Login'));
+const Map = lazy(() => import('./Components/Map/Map'));
+const NavigationBar = lazy(() => import('./Components/NavigationBar/NavigationBar'));
+const Subscribe = lazy(() => import('./Components/Subscribe/Subscribe'));
+const DeliveryAddress = lazy(() => import('./Components/DeliveryAddress/DeliveryAddress'));
+const PrivateRoute = lazy(() => import('./Components/PrivateRoute/PrivateRoute'));
+const Reservation = lazy(() => import('./Components/Reservation/Reservation'));
 
 function App(props) {
 
   return (
     <div className="App">
       <Router>
+      <Suspense fallback={<div>Loading...</div>}>
 
         <NavigationBar></NavigationBar>
 
@@ -104,7 +107,7 @@ function App(props) {
             <Footer></Footer>
           </Route>
         </Switch>
-
+        </Suspense>
       </Router>
 
 

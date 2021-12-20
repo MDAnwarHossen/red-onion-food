@@ -40,7 +40,7 @@ const Subscribe = () => {
                                         
                                     </div>
                                     <div className="col-3 d-flex justify-content-start">
-                                        <button type="submit" className="btn btn-default"><FontAwesomeIcon icon={faAngleRight} className="fa align-top" /></button>
+                                        <button aria-label="Right Arrow Button" type="submit" className="btn btn-default"><FontAwesomeIcon icon={faAngleRight} className="fa align-top" /></button>
                                     </div>
                                 </div>
                             </form>
